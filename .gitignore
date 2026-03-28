@@ -1,0 +1,42 @@
+# Maven build artifacts
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.restore
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Compiled Java resources
+*.class
+*.log
+*.ctxt
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IDE Specific
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+.nb-gradle/
+*.swp
+*.swo
+*.DS_Store
+
+# Antigravity Agent Local Files
+.agent/
+.gemini/
+/tmp/
+
+# OS specific
+Thumbs.db
+Desktop.ini
