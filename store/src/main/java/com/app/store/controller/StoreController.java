@@ -44,8 +44,8 @@ public class StoreController {
 
     @DeleteMapping("/admin/products/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Mono<Void> deleteProduct(@PathVariable Long id) {
-        return productService.deleteProduct(id);
+    public Mono<Void> deleteProduct(@PathVariable("id") Long productId) {
+        return productService.deleteProduct(productId);
     }
 
     @PostMapping("/purchase")
