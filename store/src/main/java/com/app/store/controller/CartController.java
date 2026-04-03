@@ -18,7 +18,7 @@ public class CartController {
         return cartService.getCart(studentId);
     }
 
-    @PostMapping("/items/{productId}")
+    @PutMapping("/items/{productId}")
     public Mono<Cart> updateCartItem(
             @RequestHeader("X-Student-Id") String studentId,
             @PathVariable Long productId,

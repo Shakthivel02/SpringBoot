@@ -42,13 +42,20 @@ public class GlobalExceptionHandler {
         return buildErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred", exchange);
     }
 
+
     private Mono<ResponseEntity<Map<String, Object>>> buildErrorResponse(HttpStatus status, String message, ServerWebExchange exchange) {
         Map<String, Object> body = new HashMap<>();
-        body.put("timestamp", System.currentTimeMillis());
+        body.put("timestamp", java.time.LocalDateTime.now().toString());
         body.put("status", status.value());
         body.put("error", status.getReasonPhrase());
         body.put("message", message);
         body.put("path", exchange.getRequest().getPath().value());
+        body.put("method", exchange.getRequest().getMethod().name());
+        body.put("queryParams", exchange.getRequest().getQueryParams());
+        body.put("remoteAddress", exchange.getRequest().getRemoteAddress() != null ? 
+                exchange.getRequest().getRemoteAddress().toString() : "unknown");
+        body.put("userAgent", exchange.getRequest().getHeaders().getFirst("User-Agent"));
+        
 
         return Mono.just(ResponseEntity.status(status).body(body));
     }
